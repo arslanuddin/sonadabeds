@@ -1,0 +1,2 @@
+using Microsoft.AspNetCore.Mvc;using SonadaBeds.Web.Data;
+namespace SonadaBeds.Web.Controllers;public class CartController(CartService cart):Controller{public IActionResult Index()=>View(cart.Items);[HttpPost,ValidateAntiForgeryToken]public IActionResult Remove(int id){cart.Remove(id);return RedirectToAction(nameof(Index));}[HttpPost,ValidateAntiForgeryToken]public IActionResult Clear(){cart.Clear();return RedirectToAction(nameof(Index));}}

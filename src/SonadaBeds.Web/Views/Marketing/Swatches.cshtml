@@ -1,0 +1,3 @@
+@model SwatchRequest
+@{ViewData["Title"]="Fabric Swatches";}
+<section class="page-head"><p class="eyebrow">UPHOLSTERY</p><h1>Order fabric swatches</h1><p>See our fabrics and colours in your own space before you choose.</p></section><section class="checkout"><form asp-action="Swatches" method="post"><label>Name<input asp-for="Name" required></label><label>Email<input asp-for="Email" type="email" required></label><label>Delivery address<textarea asp-for="Address" rows="4" required></textarea></label><label>Fabrics you're interested in<textarea asp-for="Fabrics" rows="4" placeholder="e.g. boucle, linen, stone, charcoal"></textarea></label><button class="button">Request swatches</button>@Html.AntiForgeryToken()</form></section>

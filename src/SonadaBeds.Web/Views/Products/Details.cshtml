@@ -1,0 +1,3 @@
+@model Product
+@{ViewData["Title"]=Model.Name;}
+<section class="detail"><div><img class="detail-img" src="@Model.ImageUrl" alt="@Model.Name"></div><div class="detail-copy"><p class="eyebrow">@Model.Category?.Name</p><h1>@Model.Name</h1><p class="price">From £@Model.BasePrice.ToString("N0")</p><p>@Model.Description</p><form asp-action="Add" method="post"><input type="hidden" name="id" value="@Model.Id"><label>Quantity <input name="quantity" type="number" min="1" max="10" value="1"></label><button class="button">Add to bag</button>@Html.AntiForgeryToken()</form><div class="promise"><span>✓ Made to order</span><span>✓ UK delivery</span><span>✓ Fabric swatches available</span></div></div></section>

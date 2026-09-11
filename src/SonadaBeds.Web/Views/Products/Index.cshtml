@@ -1,0 +1,3 @@
+@model IEnumerable<Product>
+@{ViewData["Title"]="Collection";}
+<section class="page-head"><p class="eyebrow">THE COLLECTION</p><h1>Beds & mattresses</h1><p>Explore made-to-order silhouettes, storage beds and premium sleep systems.</p></section><section class="products"><div class="grid">@foreach(var p in Model){<article class="card"><a asp-action="Details" asp-route-slug="@p.Slug"><img src="@p.ImageUrl" alt="@p.Name"><div><p class="eyebrow">@p.Category?.Name</p><h3>@p.Name</h3><p>From <strong>£@p.BasePrice.ToString("N0")</strong></p></div></a></article>}</div></section>

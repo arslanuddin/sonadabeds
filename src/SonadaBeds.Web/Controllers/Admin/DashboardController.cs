@@ -1,0 +1,2 @@
+using Microsoft.AspNetCore.Authorization;using Microsoft.AspNetCore.Mvc;using Microsoft.EntityFrameworkCore;using SonadaBeds.Web.Data;
+namespace SonadaBeds.Web.Controllers.Admin;[Area("Admin"),Authorize(Roles="Admin,Manager")]public class DashboardController(SonadaDbContext db):Controller{public async Task<IActionResult> Index(){ViewBag.Products=await db.Products.CountAsync();ViewBag.Orders=await db.Orders.CountAsync();ViewBag.Customers=await db.Users.CountAsync();ViewBag.Revenue=await db.Orders.SumAsync(x=>(decimal?)x.Total)??0;return View();}}

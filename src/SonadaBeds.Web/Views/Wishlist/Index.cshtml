@@ -1,0 +1,2 @@
+@model IEnumerable<Product>
+@{ViewData["Title"]="Wishlist";}<section class="page-head"><p class="eyebrow">SAVED FOR LATER</p><h1>Your wishlist</h1></section><section class="products"><div class="grid">@foreach(var p in Model){<article class="card"><a asp-controller="Products" asp-action="Details" asp-route-slug="@p.Slug"><img src="@p.ImageUrl" alt="@p.Name"><div><h3>@p.Name</h3><p>From <strong>£@p.BasePrice.ToString("N0")</strong></p></div></a></article>}@if(!Model.Any()){<p>No saved pieces yet.</p>}</div></section>
